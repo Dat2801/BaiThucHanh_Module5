@@ -1,0 +1,26 @@
+<div>
+  <h1 align="center">Danh sách các cuốn sách</h1>
+  <p class="form-group">
+    <a [routerLink]="'create'" class="btn btn-outline-primary">Tạo mới sách</a>
+  </p>
+</div>
+<h5 class="form-group">Có {{books.length}} cuốn sách trong danh sách</h5>
+<table class="table table-bordered">
+  <tr style="background-color: cornflowerblue">
+    <th>#</th>
+    <th>Tên sách</th>
+    <th>Tác giả</th>
+    <th colspan="2"></th>
+
+  </tr>
+  <tr *ngFor="let b of books, index as i">
+    <td>{{i + 1}}</td>
+    <td><a [routerLink]="'view/' + b.id" type="button">{{b.title}}</a></td>
+    <td>{{b.author}}</td>
+    <td>
+      <a [routerLink]="'update/'+b.id" class="btn btn-outline-primary">Sửa</a>
+      |
+      <a [routerLink]="'viewDelete/' + b.id" type="button" class="btn btn-outline-danger">Xóa</a>
+    </td>
+  </tr>
+</table>
